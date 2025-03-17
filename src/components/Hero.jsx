@@ -29,7 +29,7 @@ const Hero = () => {
             <img
               src={alamgir}
               alt="Alamgir"
-              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300"
+              className="w-64 h-64 sm:w-62 sm:h-72 md:w-70 md:h-80 lg:w-76 lg:h-96 shadow-lg shadow-blue-700 rounded-full border-4 border-white  transform hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
