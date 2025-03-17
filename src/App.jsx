@@ -19,7 +19,7 @@ function App() {
       <div className="bg-black text-white">
         <Background />
         <Header />
-        {/* <Hero /> */}
+        <Hero />
         <About />
         <Projects />
         <Skills />

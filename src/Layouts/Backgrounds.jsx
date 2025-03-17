@@ -1,88 +1,140 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const SpiderWebBackground = () => {
-  // কেন্দ্রীয় বিন্দুর অবস্থান (পৃষ্ঠার মাঝখানে)
-  const centerX = 50; // 50%
-  const centerY = 50; // 50%
+const Background = () => {
+  const [particles, setParticles] = useState([]);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [velocityMultiplier] = useState(0.05); // Velocity Multiplier to slow down the particles
 
-  // এলোমেলো ডট জেনারেট করুন
-  const dots = Array.from({ length: 50 }).map((_, index) => ({
-    id: index,
-    x: Math.random() * 100, // X পজিশন (0% থেকে 100%)
-    y: Math.random() * 100, // Y পজিশন (0% থেকে 100%)
-    size: Math.random() * 3 + 1, // ডটের সাইজ (1px থেকে 4px)
-    delay: Math.random() * 2, // অ্যানিমেশনের ডিলে
-  }));
+  // Function to generate random particles
+  const generateParticles = () => {
+    const newParticles = Array.from({ length: 50 }).map((_, index) => ({
+      id: index,
+      x: Math.random() * 100, // Random X position in percentage
+      y: Math.random() * 100, // Random Y position in percentage
+      size: Math.random() * 3 + 1, // Random size between 1px and 4px
+      velocityX: Math.random() * 0.5 - 0.25, // Random velocity X
+      velocityY: Math.random() * 0.5 - 0.25, // Random velocity Y
+    }));
+    setParticles(newParticles);
+  };
 
-  // কেন্দ্রীয় বিন্দু থেকে ছড়িয়ে পড়া লাইন জেনারেট করুন
-  const lines = Array.from({ length: 20 }).map((_, index) => ({
-    id: index,
-    angle: (360 / 20) * index, // 20টি লাইন, প্রতিটি 18 ডিগ্রি কোণে
-    length: Math.random() * 30 + 20, // লাইনের দৈর্ঘ্য (20% থেকে 50%)
-    delay: Math.random() * 2,
-  }));
+  // Mouse move listener to track mouse position
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  // Updating particle positions based on velocity and mouse interaction
+  useEffect(() => {
+    generateParticles(); // Initially generate particles
+
+    const interval = setInterval(() => {
+      setParticles((prevParticles) =>
+        prevParticles.map((particle) => {
+          // Calculate the distance between the particle and mouse
+          const distX = particle.x - mousePosition.x;
+          const distY = particle.y - mousePosition.y;
+          const distance = Math.sqrt(distX * distX + distY * distY);
+          const repulsionFactor = distance < 10 ? 0.05 : 0;
+
+          // Linear Interpolation to slow down the movement
+          const velocityX = particle.velocityX + (mousePosition.x - particle.x) * repulsionFactor * velocityMultiplier;
+          const velocityY = particle.velocityY + (mousePosition.y - particle.y) * repulsionFactor * velocityMultiplier;
+
+          // Update particle position with slower speed
+          return {
+            ...particle,
+            x: particle.x + velocityX,
+            y: particle.y + velocityY,
+            velocityX,
+            velocityY,
+          };
+        })
+      );
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [mousePosition]);
+
+  // Draw lines between close particles
+  const drawLines = () => {
+    return particles.map((particle1, index1) => {
+      return particles.map((particle2, index2) => {
+        if (index1 !== index2) {
+          const distX = particle1.x - particle2.x;
+          const distY = particle1.y - particle2.y;
+          const distance = Math.sqrt(distX * distX + distY * distY);
+
+          // If particles are close, draw a line
+          if (distance < 30) {
+            return (
+              <motion.line
+                key={`${particle1.id}-${particle2.id}`}
+                x1={`${particle1.x}%`}
+                y1={`${particle1.y}%`}
+                x2={`${particle2.x}%`}
+                y2={`${particle2.y}%`}
+                stroke="#4F46E5"
+                strokeWidth="0.5"
+                strokeOpacity={1 - distance / 30}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+              />
+            );
+          }
+        }
+        return null;
+      });
+    });
+  };
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden">
-      {/* ডট অ্যানিমেশন */}
-      {dots.map((dot) => (
+      {/* Render particles */}
+      {particles.map((particle) => (
         <motion.div
-          key={dot.id}
+          key={particle.id}
+          style={{
+            position: "absolute",
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            backgroundColor: "#4F46E5",
+            borderRadius: "50%",
+          }}
           initial={{ opacity: 0 }}
           animate={{
             opacity: [0, 1, 0],
-            x: [dot.x, dot.x + Math.random() * 10 - 5, dot.x],
-            y: [dot.y, dot.y + Math.random() * 10 - 5, dot.y],
           }}
           transition={{
             duration: Math.random() * 4 + 2,
             repeat: Infinity,
-            delay: dot.delay,
-          }}
-          style={{
-            position: "absolute",
-            left: `${dot.x}%`,
-            top: `${dot.y}%`,
-            width: `${dot.size}px`,
-            height: `${dot.size}px`,
-            backgroundColor: "#4F46E5",
-            borderRadius: "50%",
+            delay: Math.random() * 2,
           }}
         />
       ))}
 
-      {/* SVG ব্যবহার করে কেন্দ্রীয় বিন্দু থেকে ছড়িয়ে পড়া লাইন অ্যানিমেশন */}
+      {/* Render lines between particles */}
       <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-        {lines.map((line) => {
-          // লাইনের শেষ বিন্দু (x2, y2) ক্যালকুলেট করুন
-          const angleInRadians = (line.angle * Math.PI) / 180;
-          const x2 = centerX + Math.cos(angleInRadians) * line.length;
-          const y2 = centerY + Math.sin(angleInRadians) * line.length;
-
-          return (
-            <motion.line
-              key={line.id}
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: [0, 1, 0],
-                x1: `${centerX}%`,
-                y1: `${centerY}%`,
-                x2: `${x2}%`,
-                y2: `${y2}%`,
-              }}
-              transition={{
-                duration: Math.random() * 4 + 2,
-                repeat: Infinity,
-                delay: line.delay,
-              }}
-              stroke="#4F46E5"
-              strokeWidth="1"
-            />
-          );
-        })}
+        {drawLines()}
       </svg>
     </div>
   );
 };
 
-export default SpiderWebBackground;
+export default Background;
