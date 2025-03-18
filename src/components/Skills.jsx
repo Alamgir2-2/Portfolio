@@ -35,7 +35,7 @@ const Skills = () => {
                       stroke: skill.color,
                     },
                     trail: {
-                      stroke: "#2d3748", // Background color of the progress bar
+                      stroke: "#424244", 
                     },
                   }}
                 />
