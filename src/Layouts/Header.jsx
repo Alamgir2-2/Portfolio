@@ -39,40 +39,40 @@ const Header = () => {
           <Link
             to="hero"
             smooth={true}
-            duration={500}
-            className="text-white cursor-pointer hover:text-purple-500 transition duration-300"
+            duration={1000}
+            className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
           >
             Home
           </Link>
           <Link
             to="about"
             smooth={true}
-            duration={500}
-            className="text-white cursor-pointer hover:text-purple-500 transition duration-300"
+            duration={1000}
+            className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
           >
             About
           </Link>
           <Link
             to="projects"
             smooth={true}
-            duration={500}
-            className="text-white cursor-pointer hover:text-purple-500 transition duration-300"
+            duration={1000}
+            className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
           >
             Projects
           </Link>
           <Link
             to="skills"
             smooth={true}
-            duration={500}
-            className="text-white cursor-pointer hover:text-purple-500 transition duration-300"
+            duration={1000}
+            className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
           >
             Skills
           </Link>
           <Link
             to="contact"
             smooth={true}
-            duration={500}
-            className="text-white cursor-pointer hover:text-purple-500 transition duration-300"
+            duration={1000}
+            className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
           >
             Contact
           </Link>
