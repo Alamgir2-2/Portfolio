@@ -1,15 +1,17 @@
 import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { FaReact, FaNodeJs, FaJs, FaPhp, FaDatabase } from "react-icons/fa";
+import { SiTailwindcss } from "react-icons/si";
 
 const Skills = () => {
   const skills = [
-    { name: "React", level: 90, color: "#61dafb" }, // React Color
-    { name: "Tailwind CSS", level: 95, color: "#38b2ac" }, // Tailwind Color
-    { name: "Node.js", level: 85, color: "#68a063" }, // Node.js Color
-    { name: "JavaScript", level: 92, color: "#f7df1e" }, // JavaScript Color
-    { name: "PHP", level: 88, color: "#8993be" }, // PHP Color
-    { name: "MySQL", level: 80, color: "#00758f" }, // MySQL Color
+    { name: "React", level: 90, color: "#61dafb", icon: <FaReact /> },
+    { name: "Tailwind CSS", level: 95, color: "#38b2ac", icon: <SiTailwindcss /> },
+    { name: "Node.js", level: 85, color: "#68a063", icon: <FaNodeJs /> },
+    { name: "JavaScript", level: 92, color: "#f7df1e", icon: <FaJs /> },
+    { name: "PHP", level: 88, color: "#8993be", icon: <FaPhp /> },
+    { name: "MySQL", level: 80, color: "#00758f", icon: <FaDatabase /> },
   ];
 
   return (
@@ -19,26 +21,37 @@ const Skills = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {skills.map((skill, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="group relative flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
+              <div className="text-4xl mb-2" style={{ color: skill.color }}>
+                {/* {skill.icon} */}
+              </div>
               {/* Skill Name */}
-              <h3 className="text-2xl font-semibold mb-2">{skill.name}</h3>
-
-              {/* Circular Progress Indicator */}
-              <div className="w-24 h-24 mb-4">
+              {/* <h3 className="text-2xl font-semibold mb-2">{skill.name}</h3> */}
+              <div className="w-24 h-24 mb-4 relative">
                 <CircularProgressbar
                   value={skill.level}
-                  text={`${skill.level}%`}
                   styles={{
                     path: {
-                      stroke: skill.color, // Dynamic color for each skill
+                      stroke: skill.color,
                     },
-                    text: {
-                      fill: "#fff",
-                      fontSize: "16px",
-                      fontWeight: "bold",
+                    trail: {
+                      stroke: "#2d3748", // Background color of the progress bar
                     },
                   }}
                 />
+                {/* Icon and Percentage Inside the Circle */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="text-2xl" style={{ color: skill.color }}>
+                    {skill.icon}
+                  </div>
+                  {/* <p className="text-sm font-bold mt-1" style={{ color: skill.color }}>
+                    {skill.level}%
+                  </p> */}
+                </div>
+              </div>
+              {/* Tooltip */}
+              <div className="absolute -bottom-4 bg-black text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {skill.level}% Mastery
               </div>
             </div>
           ))}
