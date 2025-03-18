@@ -1,17 +1,23 @@
 import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { FaReact, FaNodeJs, FaJs, FaPhp, FaDatabase } from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
+import { FaReact, FaNodeJs, FaJs, FaPhp, FaDatabase, FaBootstrap } from "react-icons/fa";
+import { SiTailwindcss, SiJquery, SiNextdotjs,SiMongodb, SiExpress } from "react-icons/si";
 
 const Skills = () => {
   const skills = [
     { name: "React", level: 90, color: "#61dafb", icon: <FaReact /> },
-    { name: "Tailwind CSS", level: 95, color: "#38b2ac", icon: <SiTailwindcss /> },
     { name: "Node.js", level: 85, color: "#68a063", icon: <FaNodeJs /> },
     { name: "JavaScript", level: 92, color: "#f7df1e", icon: <FaJs /> },
     { name: "PHP", level: 88, color: "#8993be", icon: <FaPhp /> },
+    { name: "Next.js", level: 88, color: "#434343", icon:<SiNextdotjs /> },
+    { name: "Express.js", level: 78, color: "#f1d108", icon:<SiExpress />},
     { name: "MySQL", level: 80, color: "#00758f", icon: <FaDatabase /> },
+    { name: "MongoDB", level: 70, color: "#00fefa", icon: <SiMongodb /> },
+    { name: "jQuery", level: 75, color: "#0769ad", icon: <SiJquery /> }, 
+    { name: "AJAX", level: 78, color: "#2c3e50", icon: <FaJs /> },
+    { name: "Tailwind CSS", level: 95, color: "#38b2ac", icon: <SiTailwindcss /> },
+    { name: "Bootstrap", level: 85, color: "#7952b3", icon: <FaBootstrap /> },
   ];
 
   return (
@@ -26,7 +32,7 @@ const Skills = () => {
                 {/* {skill.icon} */}
               </div>
               {/* Skill Name */}
-              {/* <h3 className="text-2xl font-semibold mb-2">{skill.name}</h3> */}
+              <h3 className="text-2xl font-semibold mb-2">{skill.name}</h3>
               <div className="w-24 h-24 mb-4 relative">
                 <CircularProgressbar
                   value={skill.level}
@@ -35,7 +41,7 @@ const Skills = () => {
                       stroke: skill.color,
                     },
                     trail: {
-                      stroke: "#424244", 
+                      stroke: "#0000", 
                     },
                   }}
                 />
