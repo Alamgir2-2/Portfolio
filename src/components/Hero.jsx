@@ -19,13 +19,13 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between">
           {/* Left Side: Text Content */}
           <div className="text-center px-16 lg:text-left lg:w-1/2 lg:pr-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-fade-in-down">
+            <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold mb-4 animate-fade-in-down">
               Hi, I'm{" "}
               <span className="text-yellow-300">
                 <Typewriter
                   words={[
                     "Alamgir Hossain",
-                    "Full Stack Developer",
+                    // "Full-Stack Developer",
                     // "React Enthusiast",
                   ]}
                   loop={0} // 0 means infinite loop
@@ -38,21 +38,33 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-xl sm:text-2xl mb-8 animate-fade-in-up">
-              Passionate <span className="text-yellow-300">Web Developer</span>
+              A Passionate <span className="text-yellow-300">
+                <Typewriter
+                  words={[
+                    "Web Developer",
+                    // "React Enthusiast",
+                  ]}
+                  loop={0} // 0 means infinite loop
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={30}
+                  deleteSpeed={40}
+                  delaySpeed={1000}
+                /></span>
             </p>
             <div className="flex items-center mb-12 justify-center lg:justify-start space-x-4">
-              <button 
-              onClick={() => {
-                const cvUrl = "/Alamgir CV.pdf"; 
-                const link = document.createElement("a");
-                link.href = cvUrl;
-                link.setAttribute("download", "Alamgir_Hossain_Resume.pdf"); 
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }} 
-              
-              className="bg-white text-indigo-600 px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold hover:bg-gray-600 transition duration-300 animate-bounce-in">
+              <button
+                onClick={() => {
+                  const cvUrl = "/Alamgir CV.pdf";
+                  const link = document.createElement("a");
+                  link.href = cvUrl;
+                  link.setAttribute("download", "Alamgir_Hossain_Resume.pdf");
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+
+                className="bg-white text-indigo-600 px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold hover:bg-gray-600 transition duration-300 animate-bounce-in">
                 Download Resume
               </button>
               {/* Social Icons */}
@@ -85,13 +97,30 @@ const Hero = () => {
 
           {/* Right Side: Image with Animated Border */}
           <div className="relative mx-25 mt-8 lg:mt-0">
-            {/* Spinning Border */}
-            <div className="absolute -inset-2 animate-spin-slow rounded-full border-[6px] border-green-500 border-t-transparent"></div>
+            {/* Spinning Border with 3 Segments and Gaps */}
+            <div
+              className="absolute -inset-2 animate-spin-slow rounded-full border-[6px] border-transparent"
+              style={{
+                background: `conic-gradient(
+        from 0deg,
+        transparent 0deg 15deg,
+        red 15deg 75deg,
+        transparent 75deg 105deg,
+        blue 105deg 165deg,
+        transparent 165deg 195deg,
+        green 195deg 255deg,
+        transparent 255deg 285deg,
+        orange 285deg 345deg,
+        transparent 345deg 360deg
+      )`,
+              }}
+            ></div>
+
             {/* Profile Image */}
             <img
               src={alamgir}
               alt="Alamgir"
-              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 shadow-lg shadow-green-700 rounded-full  transform hover:scale-105 transition-transform duration-300"
+              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full transform hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
