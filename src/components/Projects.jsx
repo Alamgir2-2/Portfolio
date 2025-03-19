@@ -1,44 +1,157 @@
+import { useState } from "react"; // Import useState
+import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa"; // Importing icons from react-icons
+import image from "../assets/alamgir.jpg"; // Replace with your image path
+
 const Projects = () => {
-    const projects = [
-      {
-        title: "Project 1",
-        description: "A modern e-commerce platform built with React and Node.js.",
-        image: "https://via.placeholder.com/400",
-        link: "#",
-      },
-      {
-        title: "Project 2",
-        description: "A portfolio website using Tailwind CSS and Framer Motion.",
-        image: "https://via.placeholder.com/400",
-        link: "#",
-      },
-    ];
-  
-    return (
-      <section id="projects" className="py-20 relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
-          {projects.map((project, index) => (
+  const [flipped, setFlipped] = useState(null); // State to track flipped card
+  const [isIconDisabled, setIsIconDisabled] = useState(false); // State to disable icon during flip
+
+  const projects = [
+    {
+      title: "Project 1",
+      description: "A modern e-commerce platform built with React and Node.js.",
+      image: image,
+      github: "https://github.com/yourusername/project1", // GitHub link
+      live: "https://project1-live-demo.com", // Live demo link
+      techStack: ["React", "Node.js", "Tailwind CSS"], // Tech stack for back side
+    },
+    {
+      title: "Project 2",
+      description: "A portfolio website using Tailwind CSS and Framer Motion.",
+      image: image,
+      github: "https://github.com/yourusername/project2", // GitHub link
+      live: "https://project2-live-demo.com", // Live demo link
+      techStack: ["Tailwind CSS", "Framer Motion", "React"], // Tech stack for back side
+    },
+  ];
+
+  const handleFlip = (index) => {
+    setIsIconDisabled(true); // Disable icon during flip
+    setFlipped(flipped === index ? null : index); // Toggle flip
+
+    // Re-enable icon after flip animation completes (1 second)
+    setTimeout(() => {
+      setIsIconDisabled(false);
+    }, 1000);
+  };
+
+  return (
+    <section
+      id="projects"
+      className="py-24 relative z-10 "
+    >
+      {/* Background Animation */}
+      <div className="absolute inset-0 bg-[url('/path/to/your/texture.png')] bg-cover bg-center opacity-30"></div>
+
+      <h2 className="text-5xl font-semibold text-center text-white mb-16 animate-fade-in">
+        Projects
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="perspective w-full h-96 cursor-pointer relative"
+          >
+            {/* Flip Icon on the Right Side (Outside the Flip Card) */}
+            {!isIconDisabled && (
+              <div
+                className="absolute top-2 right-2 text-green-400 transition duration-300 z-20"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent card flip when clicking the icon
+                  handleFlip(index); // Toggle flip
+                }}
+              >
+                <FaSyncAlt className="h-4 w-4" />
+              </div>
+            )}
+
+            {/* Flip Card Container */}
             <div
-              key={index}
-              className="bg-black bg-opacity-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+              className={`relative preserve-3d w-full h-full duration-1000 ${
+                flipped === index ? "rotate-y-180" : ""
+              }`}
+              onClick={(e) => {
+                // Check if the click is on GitHub or Live Demo button
+                const isGitHubButton = e.target.closest(
+                  'a[href*="github.com"]'
+                );
+                const isLiveDemoButton = e.target.closest(
+                  'a[href*="live-demo.com"]'
+                );
+                // Flip only if not clicking on GitHub or Live Demo button
+                if (!isGitHubButton && !isLiveDemoButton) {
+                  handleFlip(index);
+                }
+              }}
             >
-              <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 text-white">{project.title}</h3>
+              {/* Front Side */}
+              <div className="absolute backface-hidden w-full h-full border backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 border-3 rounded-xl object-cover rounded-t-xl mb-4"
+                />
+                <h3 className="text-2xl font-semibold mb-2 text-white">
+                  {project.title}
+                </h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
-                <a
-                  href={project.link}
-                  className="text-purple-500 hover:text-purple-400 transition duration-300"
-                >
-                  View Project
-                </a>
+                <div className="flex space-x-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-900 transition duration-300 border"
+                  >
+                    <FaGithub className="mr-2" />
+                    GitHub
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:from-green-600 hover:to-teal-900 transition duration-300 border"
+                  >
+                    <FaExternalLinkAlt className="mr-2" />
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+
+              {/* Back Side */}
+              <div className="absolute backface-hidden w-full h-full border bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6 rotate-y-180">
+                <h3 className="text-2xl font-semibold mb-4 text-gray-600">
+                  Tech Stack
+                </h3>
+                <ul className="space-y-2">
+                  {project.techStack.map((tech, index) => (
+                    <li key={index} className="text-gray-500">
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-    );
-  };
-  
-  export default Projects;
+          </div>
+        ))}
+      </div>
+
+      {/* Custom CSS for Flip Animation */}
+      <style jsx>{`
+        .perspective {
+          perspective: 1000px;
+        }
+        .preserve-3d {
+          transform-style: preserve-3d;
+        }
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default Projects;
