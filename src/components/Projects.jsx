@@ -1,6 +1,8 @@
 import { useState } from "react"; // Import useState
-import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa"; // Importing icons from react-icons
-import image from "../assets/alamgir.jpg"; // Replace with your image path
+import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa"; 
+import ePlatform from "../../public/ePlatform.png"; 
+import dreamers from "../../public/dreamers.png"; 
+
 
 const Projects = () => {
   const [flipped, setFlipped] = useState(null); // State to track flipped card
@@ -20,19 +22,19 @@ const Projects = () => {
       title: "The Dreamers",
       description:
         "A Student and Social Welfare Organization. This project is built with modern technologies like React, Node.js, Tailwind CSS, and MongoDB. It is a platform for students to connect and collaborate on social welfare activities. The platform also includes features like event management, donation tracking, and community forums.",
-      image: image,
+      image: dreamers,
       github: "https://github.com/Alamgir2-2/The-Dreamers",
       live: "https://the-dreamers.vercel.app/",
       techStack: ["React", "Node.js", "Tailwind CSS", "MongoDB"],
     },
     {
-      title: "Project 2",
+      title: "ePlatform",
       description:
-        "A portfolio website using Tailwind CSS and Framer Motion. This project showcases my skills and projects in a visually appealing way. It includes animations, responsive design, and a clean user interface.",
-      image: image,
-      github: "https://github.com/yourusername/project2",
-      live: "https://project2-live-demo.com",
-      techStack: ["Tailwind CSS", "Framer Motion", "React"],
+        "Smart Learning Platform enhances online education with webcam engagement tracking, randomized quizzes, progress reports, and time-tracking. Instructors benefit from easy course creation, video/blog management, and real-time tracking. Rewards and leaderboards boost student motivation. Built with React, Express.js, and MySQL.",
+      image: ePlatform,
+      github: "https://github.com/Alamgir2-2/Online-Education-Platform",
+      live: "https://online-education-platform-3.onrender.com/",
+      techStack: ["React","Express.Js", "MySQL", "Tailwind CSS", ],
     },
   ];
 
@@ -105,7 +107,7 @@ const Projects = () => {
                 <h3 className="text-2xl font-semibold mb-2 text-white">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-300 mb-4 text-justify">
                   {truncateDescription(project.description, 20)} {/* Show only 20 words */}
                 </p>
                 <div className="mt-auto flex space-x-4">
@@ -145,7 +147,7 @@ const Projects = () => {
                 <h3 className="text-2xl font-semibold mb-2 text-gray-600">
                   Description
                 </h3>
-                <p className="text-gray-500 overflow-y-auto max-h-40">
+                <p className="text-gray-500 overflow-y-auto max-h-40 text-justify px-2">
                   {project.description} {/* Show full description */}
                 </p>
               </div>

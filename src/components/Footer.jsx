@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className=" text-white mt-10 py-8 px-18">
-      <hr />
+      <hr /> 
       <div className="max-w-6xl mx-auto px-4 p-8 flex flex-col items-center">
         <div className="flex space-x-6 mb-4">
           <a href="https://github.com/Alamgir2-2" className="hover:text-blue-400 transform transition duration-300">
