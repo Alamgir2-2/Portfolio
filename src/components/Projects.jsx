@@ -6,22 +6,33 @@ const Projects = () => {
   const [flipped, setFlipped] = useState(null); // State to track flipped card
   const [isIconDisabled, setIsIconDisabled] = useState(false); // State to disable icon during flip
 
+  // Function to truncate description
+  const truncateDescription = (text, wordLimit) => {
+    const words = text.split(" ");
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(" ") + "...";
+    }
+    return text;
+  };
+
   const projects = [
     {
-      title: "Project 1",
-      description: "A modern e-commerce platform built with React and Node.js.",
+      title: "The Dreamers",
+      description:
+        "A Student and Social Welfare Organization. This project is built with modern technologies like React, Node.js, Tailwind CSS, and MongoDB. It is a platform for students to connect and collaborate on social welfare activities. The platform also includes features like event management, donation tracking, and community forums.",
       image: image,
-      github: "https://github.com/yourusername/project1", // GitHub link
-      live: "https://project1-live-demo.com", // Live demo link
-      techStack: ["React", "Node.js", "Tailwind CSS"], // Tech stack for back side
+      github: "https://github.com/Alamgir2-2/The-Dreamers",
+      live: "https://the-dreamers.vercel.app/",
+      techStack: ["React", "Node.js", "Tailwind CSS", "MongoDB"],
     },
     {
       title: "Project 2",
-      description: "A portfolio website using Tailwind CSS and Framer Motion.",
+      description:
+        "A portfolio website using Tailwind CSS and Framer Motion. This project showcases my skills and projects in a visually appealing way. It includes animations, responsive design, and a clean user interface.",
       image: image,
-      github: "https://github.com/yourusername/project2", // GitHub link
-      live: "https://project2-live-demo.com", // Live demo link
-      techStack: ["Tailwind CSS", "Framer Motion", "React"], // Tech stack for back side
+      github: "https://github.com/yourusername/project2",
+      live: "https://project2-live-demo.com",
+      techStack: ["Tailwind CSS", "Framer Motion", "React"],
     },
   ];
 
@@ -50,7 +61,7 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="perspective w-full h-96 cursor-pointer relative"
+            className="perspective w-full h-[28rem] cursor-pointer relative"
           >
             {/* Flip Icon on the Right Side (Outside the Flip Card) */}
             {!isIconDisabled && (
@@ -85,7 +96,7 @@ const Projects = () => {
               }}
             >
               {/* Front Side */}
-              <div className="absolute backface-hidden w-full h-full border backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6">
+              <div className="absolute backface-hidden w-full h-full border backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6 flex flex-col">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -94,8 +105,10 @@ const Projects = () => {
                 <h3 className="text-2xl font-semibold mb-2 text-white">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <div className="flex space-x-4">
+                <p className="text-gray-300 mb-4">
+                  {truncateDescription(project.description, 20)} {/* Show only 20 words */}
+                </p>
+                <div className="mt-auto flex space-x-4">
                   <a
                     href={project.github}
                     target="_blank"
@@ -118,17 +131,23 @@ const Projects = () => {
               </div>
 
               {/* Back Side */}
-              <div className="absolute backface-hidden w-full h-full border bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6 rotate-y-180">
+              <div className="absolute backface-hidden w-full h-full border bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6 rotate-y-180 flex flex-col">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-600">
                   Tech Stack
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-4">
                   {project.techStack.map((tech, index) => (
                     <li key={index} className="text-gray-500">
                       {tech}
                     </li>
                   ))}
                 </ul>
+                <h3 className="text-2xl font-semibold mb-2 text-gray-600">
+                  Description
+                </h3>
+                <p className="text-gray-500 overflow-y-auto max-h-40">
+                  {project.description} {/* Show full description */}
+                </p>
               </div>
             </div>
           </div>
