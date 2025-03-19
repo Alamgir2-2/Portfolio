@@ -45,14 +45,6 @@ const Header = () => {
             Home
           </Link>
           <Link
-            to="about"
-            smooth={true}
-            duration={1000}
-            className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
-          >
-            About
-          </Link>
-          <Link
             to="projects"
             smooth={true}
             duration={1000}
@@ -67,6 +59,14 @@ const Header = () => {
             className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
           >
             Skills
+          </Link>
+          <Link
+            to="about"
+            smooth={true}
+            duration={1000}
+            className="text-white cursor-pointer hover:text-purple-500 transition duration-900"
+          >
+            About
           </Link>
           <Link
             to="contact"

@@ -2,6 +2,7 @@ import { useState } from "react"; // Import useState
 import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa"; 
 import ePlatform from "../../public/ePlatform.png"; 
 import dreamers from "../../public/dreamers.png"; 
+import quiz from "../../public/quiz.png"; 
 
 
 const Projects = () => {
@@ -35,6 +36,15 @@ const Projects = () => {
       github: "https://github.com/Alamgir2-2/Online-Education-Platform",
       live: "https://online-education-platform-3.onrender.com/",
       techStack: ["React","Express.Js", "MySQL", "Tailwind CSS", ],
+    },
+    {
+      title: "Quiz Hero",
+      description:
+        "A Online Quiz Taker.This is an interactive online quiz platform where users can attempt multiple quizzes, each containing four answer options. A time limit will be set for each quiz to enhance the challenge. After completing the quiz, the correct answers will be revealed, and the system will provide feedback based on the user's performance",
+      image: quiz,
+      github: "#",
+      live: "https://lively-arithmetic-4ebc42.netlify.app/",
+      techStack: ["React", "Bootstrap"],
     },
   ];
 

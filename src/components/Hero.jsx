@@ -64,7 +64,7 @@ const Hero = () => {
                   document.body.removeChild(link);
                 }}
 
-                className="bg-white text-indigo-600 px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold hover:bg-black hover:border border-blue-800 transition duration-300 animate-bounce-in">
+                className="bg-white text-indigo-600 px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold cursor-pointer hover:bg-black hover:border border-blue-800 transition duration-300 animate-bounce-in">
                 Download Resume
               </button>
               {/* Social Icons */}

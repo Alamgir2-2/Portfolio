@@ -60,16 +60,16 @@ const ContactUs = () => {
               </div>
 
               {/* Google Map */}
-              <div className="mt-6">
+              <div>
                 <h3 className="text-xl font-bold text-gray-400 mb-4">Location</h3>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.8107557832936!2d88.7838362748309!3d23.249972607804818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8d3dcdfb062f1%3A0x99d044a06e1bb8c1!2sSamonta%20Bazar!5e0!3m2!1sen!2sbd!4v1741802261660!5m2!1sen!2sbd"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                ></iframe>
+                <div className="mt-6 border p-2">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2412.0935593582035!2d88.76755379348218!3d23.258261218596775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1742376725205!5m2!1sen!2sbd" width="100%"
+                    height="200"
+                    style={{ border: 3 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
