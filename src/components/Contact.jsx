@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaFacebookMessenger, FaWhatsapp, FaTelegramPlane, FaLinkedin } from 'react-icons/fa';
 
 const ContactUs = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false); // Form Submit
+  const [isSubmitted, setIsSubmitted] = useState(false); 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,7 +12,7 @@ const ContactUs = () => {
   // Form Handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true); // Confirmation Message
+    setIsSubmitted(true); 
     console.log('Form Data:', formData);
   };
 
