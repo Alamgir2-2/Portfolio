@@ -79,7 +79,8 @@ const ContactUs = () => {
             <h2 className="text-2xl font-bold text-gray-400 mb-6">Send Mail</h2>
             {isSubmitted ? (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
-                <p>Thank you for your mail! I'll get back to you soon.</p>
+                {/* <p>Thank you for your mail! I'll get back to you soon.</p> */}
+                <p>Thank you! But Backend not ready yet , Please Mail at <span className='text-yellow-500 text-xl'>"mahalamgir1213@gmail.com"</span> or contact the number provide in Contact Information secton.</p>
               </div>
             ) : (
               <form className="space-y-6" onSubmit={handleSubmit}>
