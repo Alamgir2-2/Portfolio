@@ -3,6 +3,7 @@ import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
 import ePlatform from "../../public/ePlatform.png"; 
 import dreamers from "../../public/dreamers.png"; 
 import quiz from "../../public/quiz.png"; 
+import Farming from "../../public/Farming.png";
 
 
 const Projects = () => {
@@ -38,6 +39,15 @@ const Projects = () => {
       techStack: ["React","Express.Js", "MySQL", "Tailwind CSS", ],
     },
     {
+      title: "Farming Assistant",
+      description:
+        "Farming Assistant is a web application which helps as an assistant to the farmers by providing various kinds of agriculture-related information and services like online marketplace.",
+      image: Farming,
+      github: "https://github.com/Alamgir2-2/Farming-Assistant",
+      live: "#",
+      techStack: ["PHP", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
+    },
+    {
       title: "Quiz Hero",
       description:
         "A Online Quiz Taker.This is an interactive online quiz platform where users can attempt multiple quizzes, each containing four answer options. A time limit will be set for each quiz to enhance the challenge. After completing the quiz, the correct answers will be revealed, and the system will provide feedback based on the user's performance",
@@ -46,6 +56,7 @@ const Projects = () => {
       live: "https://lively-arithmetic-4ebc42.netlify.app/",
       techStack: ["React", "Bootstrap"],
     },
+    
   ];
 
   const handleFlip = (index) => {
