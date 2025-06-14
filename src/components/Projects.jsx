@@ -4,6 +4,7 @@ import ePlatform from "../../public/ePlatform.png";
 import dreamers from "../../public/dreamers.png"; 
 import quiz from "../../public/quiz.png"; 
 import Farming from "../../public/Farming.png";
+import seat from "../../public/seat.png";
 
 
 const Projects = () => {
@@ -44,6 +45,15 @@ const Projects = () => {
         "Farming Assistant is a web application which helps as an assistant to the farmers by providing various kinds of agriculture-related information and services like online marketplace.",
       image: Farming,
       github: "https://github.com/Alamgir2-2/Farming-Assistant",
+      live: "#",
+      techStack: ["PHP", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
+    },
+    {
+      title: "Seat Management System",
+      description:
+        "Built with PHP, MySQL, JavaScript, HTML, CSS, and Bootstrap, this project serves as a comprehensive seat allocation system for the residential halls of a university. It simplifies the process of assigning and managing seats for students, offering an intuitive interface for administrators to allocate, modify, and track seat assignments efficiently. The system enhances transparency and operational efficiency within the university's residential management, ensuring seamless accommodation allocation based on predefined criteria.",
+      image: seat,
+      github: "https://github.com/Alamgir2-2/Seat-Allocation-System",
       live: "#",
       techStack: ["PHP", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
     },
