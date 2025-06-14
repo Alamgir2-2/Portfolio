@@ -8,6 +8,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Background from './Layouts/Backgrounds'
 import Header from './Layouts/Header'
+import Certificates from './components/Certificates'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
         <Projects />
         <Skills />
         <About />
+        <Certificates />
         <Contact />
         <Footer />
       </div>    </>
