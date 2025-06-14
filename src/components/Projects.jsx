@@ -1,4 +1,4 @@
-import { useState } from "react"; // Import useState
+import { useEffect, useState } from "react"; // Import useState
 import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
 import ePlatform from "../../public/ePlatform.png";
 import dreamers from "../../public/dreamers.png";
@@ -9,6 +9,7 @@ import shop from "../../public/shop.png";
 
 
 const Projects = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const [flipped, setFlipped] = useState(null); // State to track flipped card
   const [isIconDisabled, setIsIconDisabled] = useState(false); // State to disable icon during flip
 
@@ -20,6 +21,10 @@ const Projects = () => {
     }
     return text;
   };
+
+  useEffect(() => {
+      setIsVisible(true);
+    }, []);
 
   const projects = [
     {
@@ -97,9 +102,14 @@ const Projects = () => {
       {/* Background Animation */}
       <div className="absolute inset-0 bg-[url('/path/to/your/texture.png')] bg-cover bg-center opacity-30"></div>
 
-      <h2 className="text-5xl font-semibold text-center text-white mb-16 animate-fade-in">
-        Projects
-      </h2>
+      {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className={`text-6xl font-black mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            Projects
+          </h2>
+          <div className={`w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mt-6 rounded-full transform transition-all duration-1000 delay-500 ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}></div>
+        </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
         {projects.map((project, index) => (
           <div

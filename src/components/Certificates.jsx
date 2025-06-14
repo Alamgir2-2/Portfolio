@@ -95,14 +95,14 @@ const Certificates = () => {
     const featuredCertificates = certificates.filter(cert => cert.featured);
 
     return (
-        <div className="min-h-screen">
+        <div id="certificates" className="min-h-screen">
             {/* Animated background */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
                 <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-6 py-12">
+            <div className="relative z-10 container mx-auto px-4 py-12">
                 {/* Header */}
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mb-6">

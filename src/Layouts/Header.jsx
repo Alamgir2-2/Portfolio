@@ -61,6 +61,15 @@ const Header = () => {
             Skills
           </Link>
           <Link
+              to="certificates"
+              smooth={true}
+              duration={500}
+              className="text-white text-lg cursor-pointer hover:text-purple-500 transition duration-300"
+              onClick={toggleMenu}
+            >
+              Certificates
+            </Link>
+          <Link
             to="about"
             smooth={true}
             duration={1000}
@@ -143,6 +152,15 @@ const Header = () => {
               onClick={toggleMenu}
             >
               Skills
+            </Link>
+            <Link
+              to="certificates"
+              smooth={true}
+              duration={500}
+              className="text-white text-lg cursor-pointer hover:text-purple-500 transition duration-300"
+              onClick={toggleMenu}
+            >
+              Certificates
             </Link>
             <Link
               to="contact"
