@@ -55,57 +55,100 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 px-4 text-white" ref={aboutRef}>
-      <div className="max-w-4xl mx-auto bg-white text-gray-800 p-10 rounded-3xl relative shadow-lg shadow-green-500">
-        
+      <div className="max-w-7xl mx-auto  text-gray-800 p-10 rounded-3xl relative shadow-lg shadow-green-500 border-2">
+
         {/* Content */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-pulse">
             About Me
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6"></div>
-          
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            I'm a passionate full-stack developer who loves creating beautiful, functional web applications. 
-            With expertise in modern technologies like{" "}
-            <strong className="text-blue-500">React</strong>,{" "}
-            <strong className="text-blue-500">Node.js</strong>,{" "}
-            <strong className="text-blue-500">PHP</strong>,{" "}
-            <strong className="text-blue-500">JavaScript</strong>, and{" "}
-            <strong className="text-blue-500">Tailwind CSS</strong>, I bring ideas to life through clean, efficient code.
-          </p>
-          
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            I believe in writing code that not only works but is maintainable, scalable, and user-friendly. 
-            My goal is to create digital experiences that solve real problems and delight users.
-          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-6 shadow-lg"></div>
 
-          {/* Skills Tags */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {['JavaScript', 'React', 'Node.js','PHP', 'Tailwind CSS','Bootstrap', 'MongoDB','MySQL', 'Express.js', 'Git','jQuery','Ajax'].map((skill, index) => (
-              <span key={index} className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-200 transition-colors duration-200">
-                {skill}
-              </span>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 leading-relaxed mb-6 font-medium">
+              👋 Hi! I'm <span className="text-white font-bold">Md Alamgir Hossain</span>,
+              a passionate <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-bold">
+                Full-Stack Developer
+              </span> and graduate from <span className="text-blue-400 font-semibold">IIT, Noakhali Science and Technology University</span>.
+              I transform ideas into <span className="text-yellow-400 font-semibold">stunning digital experiences</span> and
+              specialize in building <span className="text-green-400 font-semibold">scalable</span>,
+              <span className="text-blue-400 font-semibold"> high-performance</span> web applications
+              that users <span className="text-pink-400 font-semibold">love</span> and businesses
+              <span className="text-purple-400 font-semibold"> rely on</span>.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8 text-left">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">🚀 What I Do</h3>
+                <p className="text-gray-600">
+                  I craft responsive web applications using cutting-edge technologies like{" "}
+                  <strong className="text-blue-600">React</strong>, <strong className="text-purple-600">JavaScript</strong>,<strong className="text-green-600"> PHP</strong>,
+                  and <strong className="text-pink-600">Node.js</strong>.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-500">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">💡 My Approach</h3>
+                <p className="text-gray-600">
+                  Clean code, seamless UX, and scalable architecture. I believe every line of code
+                  should serve a purpose and create value.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced Skills Tags */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-gray-400 mb-4">🛠️ Tools & Technologies</h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { name: 'JavaScript', classes: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200' },
+                { name: 'React', classes: 'bg-blue-100 text-blue-800 hover:bg-blue-200' },
+                { name: 'Node.js', classes: 'bg-green-100 text-green-800 hover:bg-green-200' },
+                { name: 'TypeScript', classes: 'bg-indigo-100 text-indigo-800 hover:bg-indigo-200' },
+                { name: 'Tailwind CSS', classes: 'bg-cyan-100 text-cyan-800 hover:bg-cyan-200' },
+                { name: 'Bootstrap', classes: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200' },
+                { name: 'MongoDB', classes: 'bg-green-100 text-green-800 hover:bg-green-200' },
+                { name: 'Express.js', classes: 'bg-gray-100 text-gray-800 hover:bg-gray-200' },
+                { name: 'Git', classes: 'bg-orange-100 text-orange-800 hover:bg-orange-200' },
+                { name: 'AWS', classes: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200' },
+                { name: 'MySQL', classes: 'bg-blue-100 text-blue-800 hover:bg-blue-200' }
+              ].map((skill, index) => (
+                <span
+                  key={index}
+                  className={`${skill.classes} px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md`}
+                >
+                  {skill.name}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Animated Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center bg-blue-50 p-6 rounded-xl hover:bg-blue-100 transition-colors duration-300">
-            <p className="text-3xl font-bold text-blue-600 mb-2">{experience}</p>
-            <p className="text-gray-600 font-medium">Years Experience</p>
-          </div>
-          <div className="text-center bg-purple-50 p-6 rounded-xl hover:bg-purple-100 transition-colors duration-300">
-            <p className="text-3xl font-bold text-purple-600 mb-2">{projects}</p>
-            <p className="text-gray-600 font-medium">Projects Done</p>
-          </div>
-          <div className="text-center bg-green-50 p-6 rounded-xl hover:bg-green-100 transition-colors duration-300">
-            <p className="text-3xl font-bold text-green-600 mb-2">{satisfaction}</p>
-            <p className="text-gray-600 font-medium">Client Satisfaction</p>
-          </div>
-          <div className="text-center bg-orange-50 p-6 rounded-xl hover:bg-orange-100 transition-colors duration-300">
-            <p className="text-3xl font-bold text-orange-600 mb-2">{clients}</p>
-            <p className="text-gray-600 font-medium">Happy Clients</p>
+        {/* Enhanced Animated Stats */}
+        <div className="border-2 p-6 rounded-2xl shadow-inner">
+          <h3 className="text-xl font-bold text-gray-400 mb-6 text-center">📊 My Journey in Numbers</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-blue-500">
+              <div className="text-4xl mb-2">💼</div>
+              <p className="text-3xl font-bold text-blue-600 mb-2">{experience}</p>
+              <p className="text-gray-600 font-medium">Years Experience</p>
+            </div>
+            <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-purple-500">
+              <div className="text-4xl mb-2">🚀</div>
+              <p className="text-3xl font-bold text-purple-600 mb-2">{projects}</p>
+              <p className="text-gray-600 font-medium">Projects Done</p>
+            </div>
+            <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-green-500">
+              <div className="text-4xl mb-2">⭐</div>
+              <p className="text-3xl font-bold text-green-600 mb-2">{satisfaction}</p>
+              <p className="text-gray-600 font-medium">Client Satisfaction</p>
+            </div>
+            <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-orange-500">
+              <div className="text-4xl mb-2">😊</div>
+              <p className="text-3xl font-bold text-orange-600 mb-2">{clients}</p>
+              <p className="text-gray-600 font-medium">Happy Clients</p>
+            </div>
           </div>
         </div>
       </div>
