@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaFacebookMessenger, FaWhatsapp, FaTelegramPlane, FaLinkedin } from 'react-icons/fa';
 
 const ContactUs = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false); 
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,7 +12,7 @@ const ContactUs = () => {
   // Form Handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true); 
+    setIsSubmitted(true);
     console.log('Form Data:', formData);
   };
 
@@ -140,7 +140,7 @@ const ContactUs = () => {
               <div className="flex space-x-4">
                 {/* Linkedin */}
                 <a
-                  href="https://www.linkedin.com/in/your-linkedin-username"
+                  href="https://www.linkedin.com/in/alamgir22/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -151,7 +151,7 @@ const ContactUs = () => {
 
                 {/* Facebook Messenger */}
                 <a
-                  href="https://m.me/WeTheDreamersbd"
+                  href="https://m.me/Alamgir.2.web"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -162,7 +162,7 @@ const ContactUs = () => {
 
                 {/* Whatsapp */}
                 <a
-                  href="https://wa.me/your-whatsapp-number"
+                  href="https://wa.me/01648263272"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -173,7 +173,7 @@ const ContactUs = () => {
 
                 {/* Telegram */}
                 <a
-                  href="https://t.me/your-telegram-username"
+                  href="https://t.me/Alamgir_2"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-400 text-white p-3 rounded-lg hover:bg-blue-500 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
