@@ -1,10 +1,11 @@
 import { useState } from "react"; // Import useState
-import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa"; 
-import ePlatform from "../../public/ePlatform.png"; 
-import dreamers from "../../public/dreamers.png"; 
-import quiz from "../../public/quiz.png"; 
+import { FaGithub, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
+import ePlatform from "../../public/ePlatform.png";
+import dreamers from "../../public/dreamers.png";
+import quiz from "../../public/quiz.png";
 import Farming from "../../public/Farming.png";
 import seat from "../../public/seat.png";
+import shop from "../../public/shop.png";
 
 
 const Projects = () => {
@@ -37,7 +38,7 @@ const Projects = () => {
       image: ePlatform,
       github: "https://github.com/Alamgir2-2/Online-Education-Platform",
       live: "https://online-education-platform-3.onrender.com/",
-      techStack: ["React","Express.Js", "MySQL", "Tailwind CSS", ],
+      techStack: ["React", "Express.Js", "MySQL", "Tailwind CSS",],
     },
     {
       title: "Farming Assistant",
@@ -47,6 +48,15 @@ const Projects = () => {
       github: "https://github.com/Alamgir2-2/Farming-Assistant",
       live: "#",
       techStack: ["PHP", "MySQL", "JavaScript", "Bootstrap", "HTML", "CSS"],
+    },
+    {
+      title: "Shop Assistant",
+      description:
+        "Shop Management System stores records of suppliers, sales and purchases and customer records are maintained and manipulated.Generally, these works are done and managed manually, leading to the chances of human errors that maycreate problems.Thus, a secured and reliable system is required to handle it.",
+      image: shop,
+      github: "https://github.com/IIT-NSTU/Shop-Assistant",
+      live: "#",
+      techStack: ["Java", "Java Swing"],
     },
     {
       title: "Seat Management System",
@@ -66,7 +76,7 @@ const Projects = () => {
       live: "https://lively-arithmetic-4ebc42.netlify.app/",
       techStack: ["React", "Bootstrap"],
     },
-    
+
   ];
 
   const handleFlip = (index) => {
@@ -111,9 +121,8 @@ const Projects = () => {
 
             {/* Flip Card Container */}
             <div
-              className={`relative preserve-3d w-full h-full duration-1000 ${
-                flipped === index ? "rotate-y-180" : ""
-              }`}
+              className={`relative preserve-3d w-full h-full duration-1000 ${flipped === index ? "rotate-y-180" : ""
+                }`}
               onClick={(e) => {
                 // Check if the click is on GitHub or Live Demo button
                 const isGitHubButton = e.target.closest(
