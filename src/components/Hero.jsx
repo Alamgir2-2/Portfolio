@@ -41,8 +41,8 @@ const Hero = () => {
               A Passionate <span className="text-yellow-300">
                 <Typewriter
                   words={[
+                    "Software Engineer",
                     "Web Developer",
-                    // "React Enthusiast",
                   ]}
                   loop={0} // 0 means infinite loop
                   cursor
