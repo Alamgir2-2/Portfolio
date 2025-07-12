@@ -55,10 +55,10 @@ const Hero = () => {
             <div className="flex items-center mb-12 justify-center lg:justify-start space-x-4">
               <button
                 onClick={() => {
-                  const cvUrl = "/Alamgir CV.pdf";
+                  const cvUrl = "/Alamgir_Hossain_Software_Developer.pdf";
                   const link = document.createElement("a");
                   link.href = cvUrl;
-                  link.setAttribute("download", "Alamgir_Hossain_Resume.pdf");
+                  link.setAttribute("download", "Alamgir_Hossain_Software_Developer.pdf");
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
