@@ -110,101 +110,95 @@ const Projects = () => {
           <div className={`w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mt-6 rounded-full transform transition-all duration-1000 delay-500 ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}></div>
         </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="perspective w-full h-[28rem] cursor-pointer relative"
-          >
-            {/* Flip Icon on the Right Side (Outside the Flip Card) */}
-            {!isIconDisabled && (
-              <div
-                className="absolute top-2 right-2 text-green-400 transition duration-300 z-20"
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent card flip when clicking the icon
-                  handleFlip(index); // Toggle flip
-                }}
-              >
-                <FaSyncAlt className="h-4 w-4" />
-              </div>
-            )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 sm:px-6">
+  {projects.map((project, index) => (
+    <div
+      key={index}
+      className="perspective w-full h-auto min-h-[26rem] sm:min-h-[28rem] cursor-pointer relative"
+    >
+      {/* Flip Icon */}
+      {!isIconDisabled && (
+        <div
+          className="absolute top-2 right-2 text-green-400 transition duration-300 z-20"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleFlip(index);
+          }}
+        >
+          <FaSyncAlt className="h-4 w-4 sm:h-5 sm:w-5" />
+        </div>
+      )}
 
-            {/* Flip Card Container */}
-            <div
-              className={`relative preserve-3d w-full h-full duration-1000 ${flipped === index ? "rotate-y-180" : ""
-                }`}
-              onClick={(e) => {
-                // Check if the click is on GitHub or Live Demo button
-                const isGitHubButton = e.target.closest(
-                  'a[href*="github.com"]'
-                );
-                const isLiveDemoButton = e.target.closest(
-                  'a[href*="live-demo.com"]'
-                );
-                // Flip only if not clicking on GitHub or Live Demo button
-                if (!isGitHubButton && !isLiveDemoButton) {
-                  handleFlip(index);
-                }
-              }}
+      {/* Flip Card Container */}
+      <div
+        className={`relative preserve-3d w-full h-full duration-1000 ${
+          flipped === index ? "rotate-y-180" : ""
+        }`}
+        onClick={(e) => {
+          const isGitHubButton = e.target.closest('a[href*="github.com"]');
+          const isLiveDemoButton = e.target.closest('a[href*="live"]');
+          if (!isGitHubButton && !isLiveDemoButton) handleFlip(index);
+        }}
+      >
+        {/* Front Side */}
+        <div className="absolute backface-hidden w-full h-full border backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-4 sm:p-6 flex flex-col">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-32 sm:h-40 md:h-48 object-cover rounded-xl mb-4"
+          />
+          <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-white">
+            {project.title}
+          </h3>
+          <p className="text-gray-300 mb-4 text-justify text-sm sm:text-base">
+            {truncateDescription(project.description, 20)}
+          </p>
+          <div className="mt-auto flex flex-wrap gap-2 sm:gap-4 justify-start sm:justify-between">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg text-sm sm:text-base w-full sm:w-auto justify-center border hover:from-purple-700 hover:to-indigo-900 transition"
             >
-              {/* Front Side */}
-              <div className="absolute backface-hidden w-full h-full border backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6 flex flex-col">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 border-3 rounded-xl object-cover rounded-t-xl mb-4"
-                />
-                <h3 className="text-2xl font-semibold mb-2 text-white">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mb-4 text-justify">
-                  {truncateDescription(project.description, 20)} {/* Show only 20 words */}
-                </p>
-                <div className="mt-auto flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center px-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-900 transition duration-300 border"
-                  >
-                    <FaGithub className="mr-2" />
-                    GitHub
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg hover:from-green-600 hover:to-teal-900 transition duration-300 border"
-                  >
-                    <FaExternalLinkAlt className="mr-2" />
-                    Live Demo
-                  </a>
-                </div>
-              </div>
-
-              {/* Back Side */}
-              <div className="absolute backface-hidden w-full h-full border bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-6 rotate-y-180 flex flex-col">
-                <h3 className="text-2xl font-semibold mb-4 text-gray-600">
-                  Tech Stack
-                </h3>
-                <ul className="space-y-2 mb-4">
-                  {project.techStack.map((tech, index) => (
-                    <li key={index} className="text-gray-500">
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <h3 className="text-2xl font-semibold mb-2 text-gray-600">
-                  Description
-                </h3>
-                <p className="text-gray-500 overflow-y-auto max-h-40 text-justify px-2">
-                  {project.description} {/* Show full description */}
-                </p>
-              </div>
-            </div>
+              <FaGithub className="mr-2" />
+              GitHub
+            </a>
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center px-3 py-1.5 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg text-sm sm:text-base w-full sm:w-auto justify-center border hover:from-green-600 hover:to-teal-900 transition"
+            >
+              <FaExternalLinkAlt className="mr-2" />
+              Live Demo
+            </a>
           </div>
-        ))}
+        </div>
+
+        {/* Back Side */}
+        <div className="absolute backface-hidden w-full h-full border bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg shadow-green-500 overflow-hidden p-4 sm:p-6 rotate-y-180 flex flex-col">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-600">
+            Tech Stack
+          </h3>
+          <ul className="space-y-1 mb-4 text-sm sm:text-base">
+            {project.techStack.map((tech, idx) => (
+              <li key={idx} className="text-gray-500">
+                {tech}
+              </li>
+            ))}
+          </ul>
+          <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-gray-600">
+            Description
+          </h3>
+          <p className="text-gray-500 overflow-y-auto max-h-40 text-sm sm:text-base text-justify px-1 sm:px-2">
+            {project.description}
+          </p>
+        </div>
       </div>
+    </div>
+  ))}
+</div>
+
 
       {/* Custom CSS for Flip Animation */}
       <style jsx>{`
