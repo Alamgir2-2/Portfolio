@@ -28,7 +28,7 @@ const Certificates = () => {
             credentialId: "aws-saa-2024-002",
             verifyUrl: "#",
             image: "https://plus.unsplash.com/premium_photo-1685697927817-8e8e0ab6ec9e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2lja28lMjBuZXR3b3JrfGVufDB8fDB8fHww",
-            featured:true,
+            featured: true,
             skills: ["RP", "ACLs", "Routing"]
         },
         {
@@ -128,46 +128,50 @@ const Certificates = () => {
 
                 {/* Featured Certificates */}
                 {featuredCertificates.length > 0 && (
-                    <div className="mb-10">
-                        <h2 className="text-3xl font-bold text-white mb-8 text-center">Featured Certifications</h2>
-                        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                            {featuredCertificates.map(cert => (
+                    <div className="mb-10 px-4 sm:px-6 lg:px-8">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">
+                            Featured Certifications
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+                            {featuredCertificates.map((cert) => (
                                 <div
                                     key={cert.id}
-                                    className="group relative bg-gradient-to-br from-purple-800/50 to-blue-800/50 rounded-2xl p-3 backdrop-blur-sm border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500 hover:scale-105"
+                                    className="group relative bg-gradient-to-br from-purple-800/50 to-blue-800/50 rounded-2xl p-4 sm:p-5 backdrop-blur-sm border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500 hover:scale-105"
                                 >
                                     <div className="absolute top-4 right-4">
                                         <AiFillStar className="w-6 h-6 text-yellow-400 fill-current" />
                                     </div>
-                                    <div className="flex items-start space-x-4">
-                                        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-                                            <BsAwardFill className="w-8 h-8 text-white" />
+                                    <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-4 space-y-3 sm:space-y-0">
+                                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                                            <BsAwardFill className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-xl font-bold text-white mb-2">{cert.title}</h3>
-                                            <div className="flex items-center text-gray-300 mb-3">
-                                                <BsBuilding className="w-4 h-4 mr-2" />
+                                            <h3 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">
+                                                {cert.title}
+                                            </h3>
+                                            <div className="flex flex-wrap items-center text-gray-300 text-sm sm:text-base mb-2 sm:mb-3">
+                                                <BsBuilding className="w-4 h-4 mr-1" />
                                                 <span>{cert.issuer}</span>
-                                                <BsFillCalendar2Fill className="w-4 h-4 ml-4 mr-2" />
+                                                <BsFillCalendar2Fill className="w-4 h-4 ml-4 mr-1" />
                                                 <span>{cert.date}</span>
                                             </div>
                                             <div className="flex flex-wrap gap-2">
                                                 {cert.skills.map((skill, i) => (
-                                                    <span key={i} className="px-3 py-1 text-xs bg-purple-500/30 text-purple-200 rounded-full border border-purple-400/30">
+                                                    <span
+                                                        key={i}
+                                                        className="px-3 py-1 text-xs sm:text-sm bg-purple-500/30 text-purple-200 rounded-full border border-purple-400/30"
+                                                    >
                                                         {skill}
                                                     </span>
                                                 ))}
                                             </div>
-                                            {/* <button className="flex items-center text-purple-300 hover:text-purple-200 transition-colors">
-                        <BsBoxArrowUpRight className="w-4 h-4 mr-2" />
-                        Verify Certificate
-                      </button> */}
                                         </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
+
                 )}
 
                 {/* Category Filter */}
@@ -177,8 +181,8 @@ const Certificates = () => {
                             key={category.id}
                             onClick={() => setSelectedCategory(category.id)}
                             className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 ${selectedCategory === category.id
-                                    ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25'
-                                    : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20'
+                                ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25'
+                                : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20'
                                 }`}
                         >
                             <span>{category.name}</span>
