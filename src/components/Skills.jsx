@@ -97,14 +97,17 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {skills.map((skill, index) => {
             const isHovered = hoveredSkills[skill.name];
 
             return (
               <div
                 key={index}
-                className={`group relative flex flex-col items-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                className={`group relative flex flex-col items-center p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl 
+        bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 
+        hover:border-gray-600/50 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 
+        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
                 style={{
                   transitionDelay: `${index * 100}ms`,
                   boxShadow: `0 8px 32px ${skill.color}20`
@@ -112,17 +115,20 @@ const Skills = () => {
                 onMouseEnter={() => handleMouseEnter(skill.name)}
                 onMouseLeave={() => handleMouseLeave(skill.name)}
               >
-                {/* Glowing border effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" style={{ background: `linear-gradient(45deg, ${skill.color}40, transparent, ${skill.color}40)` }}></div>
+                {/* Glowing Border */}
+                <div
+                  className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
+                  style={{ background: `linear-gradient(45deg, ${skill.color}40, transparent, ${skill.color}40)` }}
+                ></div>
 
                 {/* Category Badge */}
-                <div className="absolute -top-3 left-4 px-3 py-1 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full text-xs font-semibold text-gray-300 border border-gray-600">
+                <div className="absolute -top-2 left-2 px-2 py-0.5 text-[10px] sm:text-xs bg-gradient-to-r from-gray-700 to-gray-800 rounded-full text-gray-300 border border-gray-600 font-semibold">
                   {skill.category}
                 </div>
 
                 {/* Skill Icon */}
                 <div
-                  className="text-4xl mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 relative z-10"
+                  className="text-2xl sm:text-4xl mb-3 sm:mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 relative z-10"
                   style={{
                     color: skill.color,
                     filter: `drop-shadow(0 0 12px ${skill.color}60)`
@@ -132,24 +138,19 @@ const Skills = () => {
                 </div>
 
                 {/* Skill Name */}
-                <h3 className="text-lg font-bold mb-4 text-center relative z-10 group-hover:text-white transition-colors duration-300">
+                <h3 className="text-sm sm:text-lg font-bold mb-2 text-center relative z-10 group-hover:text-white transition-colors duration-300">
                   {skill.name}
                 </h3>
 
                 {/* Circular Progress */}
-                <div className="mb-4 relative z-10">
-                  <CircularProgress
-                    value={skill.level}
-                    color={skill.color}
-                    isHovered={isHovered}
-                  >
-                    {!isHovered && (
-                      <div className="text-2xl mb-1 mr-2" style={{ color: skill.color }}>
+                <div className="mb-3 sm:mb-4 relative z-10">
+                  <CircularProgress value={skill.level} color={skill.color} isHovered={isHovered}>
+                    {!isHovered ? (
+                      <div className="text-xl sm:text-2xl mb-1 mr-2" style={{ color: skill.color }}>
                         {skill.icon}
                       </div>
-                    )}
-                    {isHovered && (
-                      <span className="text-xs font-bold" style={{ color: skill.color }}>
+                    ) : (
+                      <span className="text-[10px] sm:text-xs font-bold" style={{ color: skill.color }}>
                         {skill.level}%
                       </span>
                     )}
@@ -157,9 +158,9 @@ const Skills = () => {
                 </div>
 
                 {/* Skill Level Bar */}
-                <div className="w-full bg-gray-700 rounded-full h-2 mb-2 relative z-10 overflow-hidden">
+                <div className="w-full bg-gray-700 rounded-full h-1.5 sm:h-2 mb-2 relative z-10 overflow-hidden">
                   <div
-                    className="h-2 rounded-full transition-all duration-1000 ease-out relative"
+                    className="h-full rounded-full transition-all duration-1000 ease-out relative"
                     style={{
                       width: isHovered ? `${skill.level}%` : '0%',
                       background: `linear-gradient(90deg, ${skill.color}, ${skill.color}80)`,
@@ -172,22 +173,15 @@ const Skills = () => {
 
                 {/* Mastery Level */}
                 <div className="text-center relative z-10">
-                  <p className="text-sm font-semibold text-gray-300">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-300">
                     {skill.level >= 90 ? 'Expert' : skill.level >= 80 ? 'Advanced' : skill.level >= 70 ? 'Intermediate' : 'Learning'}
                   </p>
                 </div>
-
-                {/* Hover Tooltip */}
-                {/* <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-black/90 text-white text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none backdrop-blur-sm border border-gray-600 z-20">
-                  <div className="text-center">
-                    <p className="font-semibold">{skill.level}% Proficiency</p>
-                  </div>
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-black/90 rotate-225 border-l border-t border-gray-600"></div>
-                </div> */}
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
