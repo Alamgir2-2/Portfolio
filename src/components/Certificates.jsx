@@ -108,22 +108,23 @@ const Certificates = () => {
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mb-6">
                         <BsAwardFill className="w-8 h-8 text-white" />
                     </div>
-                    <h1 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent text-center">
                         My Certifications
                     </h1>
                     <p className="text-md text-gray-300 max-w-3xl mx-auto">
                         A showcase of my professional achievements and continuous learning journey in technology and beyond.
                     </p>
-                    <div className="mt-4 flex items-center justify-center space-x-8 text-gray-300">
-                        <div className="flex items-center space-x-2">
-                            <AiOutlineCheckCircle className="w-5 h-5 text-green-400" />
-                            <span>{certificates.length} Certificates</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                            <AiFillStar className="w-5 h-5 text-yellow-400" />
-                            <span>{featuredCertificates.length} Featured</span>
-                        </div>
-                    </div>
+                    <div className="mt-4 flex flex-col sm:flex-row items-center justify-center sm:space-x-8 space-y-2 sm:space-y-0 text-gray-300 text-sm sm:text-base">
+  <div className="flex items-center space-x-2">
+    <AiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+    <span>{certificates.length} Certificates</span>
+  </div>
+  <div className="flex items-center space-x-2">
+    <AiFillStar className="w-5 h-5 text-yellow-400" />
+    <span>{featuredCertificates.length} Featured</span>
+  </div>
+</div>
+
                 </div>
 
                 {/* Featured Certificates */}

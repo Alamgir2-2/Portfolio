@@ -16,55 +16,56 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-8">
-          
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+
+
           {/* Mobile: Image First (Order 1) */}
-          <div className="relative mt-8 lg:mt-0 order-1 lg:order-2 flex-shrink-0">
-            
+          <div className="relative order-1 sm:order-1 lg:order-2  flex-shrink-0">
+
             {/* Outer Glow Effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full blur-xl opacity-20 animate-pulse"></div>
-            
+            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full blur-xl opacity-20 animate-pulse z-0"></div>
+
             {/* Spinning Border with Multiple Segments */}
             <div
-              className="absolute -inset-2 animate-spin rounded-full border-[4px] border-transparent"
+              className="absolute -inset-2 animate-spin rounded-full border-[4px] border-transparent z-0"
               style={{
                 background: `conic-gradient(
-                  from 0deg,
-                  transparent 0deg 15deg,
-                  #ff6b6b 15deg 75deg,
-                  transparent 75deg 105deg,
-                  #4ecdc4 105deg 165deg,
-                  transparent 165deg 195deg,
-                  #45b7d1 195deg 255deg,
-                  transparent 255deg 285deg,
-                  #f9ca24 285deg 345deg,
-                  transparent 345deg 360deg
-                )`,
+            from 0deg,
+            transparent 0deg 15deg,
+            #ff6b6b 15deg 75deg,
+            transparent 75deg 105deg,
+            #4ecdc4 105deg 165deg,
+            transparent 165deg 195deg,
+            #45b7d1 195deg 255deg,
+            transparent 255deg 285deg,
+            #f9ca24 285deg 345deg,
+            transparent 345deg 360deg
+          )`,
                 animation: 'spin 20s linear infinite'
               }}
             ></div>
 
             {/* Inner Spinning Ring */}
             <div
-              className="absolute -inset-1 animate-spin rounded-full border-[1px] border-transparent"
+              className="absolute -inset-1 animate-spin rounded-full border-[1px] border-transparent z-0"
               style={{
                 background: `conic-gradient(
-                  from 180deg,
-                  transparent 0deg 30deg,
-                  #ff9ff3 30deg 90deg,
-                  transparent 90deg 120deg,
-                  #54a0ff 120deg 180deg,
-                  transparent 180deg 210deg,
-                  #5f27cd 210deg 270deg,
-                  transparent 270deg 300deg,
-                  #00d2d3 300deg 360deg
-                )`,
+            from 180deg,
+            transparent 0deg 30deg,
+            #ff9ff3 30deg 90deg,
+            transparent 90deg 120deg,
+            #54a0ff 120deg 180deg,
+            transparent 180deg 210deg,
+            #5f27cd 210deg 270deg,
+            transparent 270deg 300deg,
+            #00d2d3 300deg 360deg
+          )`,
                 animation: 'spin 20s linear infinite reverse'
               }}
             ></div>
 
             {/* Profile Image with Enhanced Animations */}
-            <div className="relative">
+            <div className="relative z-10">
               <img
                 src={alamgir}
                 alt="Alamgir"
@@ -72,23 +73,19 @@ const Hero = () => {
                 style={{
                   width: 'clamp(180px, 20vw, 320px)',
                   height: 'clamp(180px, 20vw, 320px)',
-                  filter: 'brightness(1.1) contrast(1.1)',
-                  // animation: 'float 6s ease-in-out infinite'
+                  filter: 'brightness(1.1) contrast(1.1)'
                 }}
               />
-              
             </div>
           </div>
 
           {/* Mobile: Text Content Second (Order 2) */}
-          <div className="text-center px-3 sm:px-6 lg:text-left lg:w-1/2 lg:pr-8 order-2 lg:order-1">
-            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in-down leading-tight">
+          <div className="text-center px-4 sm:px-6 lg:text-left lg:w-1/2 order-2 sm:order-2 lg:order-1  ">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 animate-fade-in-down leading-tight">
               Hi, I'm{" "}
               <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
                 <Typewriter
-                  words={[
-                    "Alamgir Hossain",
-                  ]}
+                  words={["Alamgir Hossain"]}
                   loop={0}
                   cursor
                   cursorStyle="_"
@@ -98,16 +95,15 @@ const Hero = () => {
                 />
               </span>
             </h1>
-            
+
+
             <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 animate-fade-in-up leading-relaxed">
               A Passionate{" "}
-              <span className=" bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent font-semibold">
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent font-semibold">
                 <Typewriter
                   words={[
                     "Software Engineer",
                     "Web Developer",
-                    // "Problem Solver",
-                    // "Tech Enthusiast"
                   ]}
                   loop={0}
                   cursor
@@ -118,7 +114,7 @@ const Hero = () => {
                 />
               </span>
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-8 sm:mb-12">
               <button
                 onClick={() => {
@@ -130,11 +126,11 @@ const Hero = () => {
                   link.click();
                   document.body.removeChild(link);
                 }}
-                className="bg-white text-indigo-600 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold cursor-pointer hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white border-2 border-transparent hover:border-white transition-all duration-300 animate-bounce-in shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="bg-white text-indigo-600 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full font-semibold cursor-pointer hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white border-2 border-transparent hover:border-white transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105 text-sm sm:text-base md:text-lg"
               >
                 Download Resume
               </button>
-              
+
               {/* Social Icons */}
               <div className="flex space-x-4 sm:space-x-6">
                 <a
@@ -164,8 +160,12 @@ const Hero = () => {
               </div>
             </div>
           </div>
+
+
+
         </div>
       </div>
+
 
       {/* Custom CSS for animations */}
       <style jsx>{`

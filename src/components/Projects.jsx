@@ -103,12 +103,21 @@ const Projects = () => {
       <div className="absolute inset-0 bg-[url('/path/to/your/texture.png')] bg-cover bg-center opacity-30"></div>
 
       {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className={`text-6xl font-black mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            Projects
-          </h2>
-          <div className={`w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mt-6 rounded-full transform transition-all duration-1000 delay-500 ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}></div>
-        </div>
+        <div className="text-center mb-16 px-4">
+  <h2
+    className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent transform transition-all duration-1000 ${
+      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+    }`}
+  >
+    Projects
+  </h2>
+  <div
+    className={`w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mt-6 rounded-full transform transition-all duration-1000 delay-500 ${
+      isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+    }`}
+  ></div>
+</div>
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 sm:px-6">
   {projects.map((project, index) => (
