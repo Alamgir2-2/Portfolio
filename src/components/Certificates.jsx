@@ -115,15 +115,15 @@ const Certificates = () => {
                         A showcase of my professional achievements and continuous learning journey in technology and beyond.
                     </p>
                     <div className="mt-4 flex flex-col sm:flex-row items-center justify-center sm:space-x-8 space-y-2 sm:space-y-0 text-gray-300 text-sm sm:text-base">
-  <div className="flex items-center space-x-2">
-    <AiOutlineCheckCircle className="w-5 h-5 text-green-400" />
-    <span>{certificates.length} Certificates</span>
-  </div>
-  <div className="flex items-center space-x-2">
-    <AiFillStar className="w-5 h-5 text-yellow-400" />
-    <span>{featuredCertificates.length} Featured</span>
-  </div>
-</div>
+                        <div className="flex items-center space-x-2">
+                            <AiOutlineCheckCircle className="w-5 h-5 text-green-400" />
+                            <span>{certificates.length} Certificates</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                            <AiFillStar className="w-5 h-5 text-yellow-400" />
+                            <span>{featuredCertificates.length} Featured</span>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -176,21 +176,25 @@ const Certificates = () => {
                 )}
 
                 {/* Category Filter */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-12">
                     {categories.map(category => (
                         <button
                             key={category.id}
                             onClick={() => setSelectedCategory(category.id)}
-                            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 ${selectedCategory === category.id
-                                ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25'
-                                : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20'
+                            className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-small transition-all duration-300 flex items-center gap-2
+        ${selectedCategory === category.id
+                                    ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/25'
+                                    : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-white/20'
                                 }`}
                         >
                             <span>{category.name}</span>
-                            <span className="text-xs bg-white/20 px-2 py-1 rounded-full">{category.count}</span>
+                            <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                                {category.count}
+                            </span>
                         </button>
                     ))}
                 </div>
+
 
                 {/* Certificates Grid */}
                 <div className="grid md:grid-cols-2 max-w-7xl mx-auto lg:grid-cols-3 gap-6">
