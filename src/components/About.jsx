@@ -64,8 +64,8 @@ const About = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-6 shadow-lg"></div>
 
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xl text-gray-300 leading-relaxed mb-6 font-medium">
+          <div className="max-w-6xl mx-auto px-2 sm:px-2 lg:px-3">
+            <p className="text-base text-justify sm:text-sm md:text-xl text-gray-300 leading-relaxed mb-6 font-medium">
               👋 Hi! I'm <span className="text-white font-bold">Md Alamgir Hossain</span>,
               a passionate <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-bold">
                 Full-Stack Developer
@@ -77,25 +77,26 @@ const About = () => {
               <span className="text-purple-400 font-semibold"> rely on</span>.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-8 text-left">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-500">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">🚀 What I Do</h3>
-                <p className="text-gray-600">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 sm:p-5 md:p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2">🚀 What I Do</h3>
+                <p className="text-sm sm:text-base text-gray-600">
                   I craft responsive web applications using cutting-edge technologies like{" "}
-                  <strong className="text-blue-600">React</strong>, <strong className="text-purple-600">JavaScript</strong>,<strong className="text-green-600"> PHP</strong>,
-                  and <strong className="text-pink-600">Node.js</strong>.
+                  <strong className="text-blue-600">React</strong>, <strong className="text-purple-600">JavaScript</strong>,
+                  <strong className="text-green-600"> PHP</strong>, and <strong className="text-pink-600">Node.js</strong>.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-500">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">💡 My Approach</h3>
-                <p className="text-gray-600">
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 sm:p-5 md:p-6 rounded-xl border-l-4 border-green-500">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2">💡 My Approach</h3>
+                <p className="text-sm sm:text-base text-gray-600">
                   Clean code, seamless UX, and scalable architecture. I believe every line of code
                   should serve a purpose and create value.
                 </p>
               </div>
             </div>
           </div>
+
 
           {/* Enhanced Skills Tags */}
           <div className="mb-6">
@@ -127,30 +128,33 @@ const About = () => {
 
         {/* Enhanced Animated Stats */}
         <div className="border-2 p-6 rounded-2xl shadow-inner">
-          <h3 className="text-xl font-bold text-gray-400 mb-6 text-center">📊 My Journey in Numbers</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <h3 className="text-base sm:text-xl font-bold text-gray-400 mb-6 text-center">
+            📊 My Journey in Numbers
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-blue-500">
-              <div className="text-4xl mb-2">💼</div>
-              <p className="text-3xl font-bold text-blue-600 mb-2">{experience}</p>
-              <p className="text-gray-600 font-medium">Years Experience</p>
+              <div className="text-3xl sm:text-4xl mb-2">💼</div>
+              <p className="text-xl sm:text-3xl font-bold text-blue-600 mb-2">{experience}</p>
+              <p className="text-sm sm:text-base text-gray-600 font-medium">Years Experience</p>
             </div>
             <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-purple-500">
-              <div className="text-4xl mb-2">🚀</div>
-              <p className="text-3xl font-bold text-purple-600 mb-2">{projects}</p>
-              <p className="text-gray-600 font-medium">Projects Done</p>
+              <div className="text-3xl sm:text-4xl mb-2">🚀</div>
+              <p className="text-xl sm:text-3xl font-bold text-purple-600 mb-2">{projects}</p>
+              <p className="text-sm sm:text-base text-gray-600 font-medium">Projects Done</p>
             </div>
             <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-green-500">
-              <div className="text-4xl mb-2">⭐</div>
-              <p className="text-3xl font-bold text-green-600 mb-2">{satisfaction}</p>
-              <p className="text-gray-600 font-medium">Client Satisfaction</p>
+              <div className="text-3xl sm:text-4xl mb-2">⭐</div>
+              <p className="text-xl sm:text-3xl font-bold text-green-600 mb-2">{satisfaction}</p>
+              <p className="text-sm sm:text-base text-gray-600 font-medium">Client Satisfaction</p>
             </div>
             <div className="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-t-4 border-orange-500">
-              <div className="text-4xl mb-2">😊</div>
-              <p className="text-3xl font-bold text-orange-600 mb-2">{clients}</p>
-              <p className="text-gray-600 font-medium">Happy Clients</p>
+              <div className="text-3xl sm:text-4xl mb-2">😊</div>
+              <p className="text-xl sm:text-3xl font-bold text-orange-600 mb-2">{clients}</p>
+              <p className="text-sm sm:text-base text-gray-600 font-medium">Happy Clients</p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
